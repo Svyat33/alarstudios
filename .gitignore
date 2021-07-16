@@ -1,0 +1,5 @@
+database
+venv
+.idea/
+*.pyc
+.env

@@ -1,0 +1,9 @@
+Django==3.2.5
+django-cors-headers
+djangorestframework==3.12.4
+djangorestframework-simplejwt==4.6.0
+PyJWT==1.7.1
+gunicorn>=20.1
+mysqlclient==2.0.1
+django-mysql==3.9
+pika
