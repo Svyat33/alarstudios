@@ -1,4 +1,3 @@
 Django==3.2.5
 django-cors-headers
-requests
 redis

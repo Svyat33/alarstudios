@@ -14,12 +14,14 @@ logger = logging.getLogger(__name__)
 
 def callback(ch, method, properties, body):
     data = json.loads(body)
-    if properties.content_type == 'user_stored':
+    if 'user_stored' == properties.content_type:
         serializer = UserChangesSerializer(data=data)
         if serializer.is_valid():
             usr = serializer.save()
             logger.info(f"Create user {usr}")
-
+    elif 'user_deleted' == properties.content_type:
+        logger.info(f"User {data['id']} deleted")
+        User.objects.filter(pk=data.get('id')).delete()
 
 class Command(BaseCommand):
     help = 'Listen new users and user changes'

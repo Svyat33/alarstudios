@@ -1,15 +1,8 @@
-from django.contrib.sites import requests
-from django.http import JsonResponse, Http404, HttpResponseBadRequest, HttpResponseNotFound
 from random import randint
 
+from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotFound
+
 from generatetrack.settings import redis_instance
-
-
-def get_dot_info(dotid: int = 0) -> dict:
-    ret = requests.get(f'http://dots/api/dot/{dotid}')
-    if ret.ok:
-        return ret.json()
-    raise ValueError("Dot not found!")
 
 
 # Create your views here.
@@ -28,7 +21,7 @@ def build(request):
     same_dots = dots2 & dots1
     path = [int(request.GET.get('from')), ]
     while path_length > 0 and same_dots:
-        path_length -=1
+        path_length -= 1
         path.append(same_dots.pop())
     path.append(int(request.GET.get('to')))
     return JsonResponse({'length': radius, 'dots': len(path), 'from': from_coord, 'to': to_coord, 'path': path})

@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import GenericViewSet
 
 from data.models import Dot, Track
-from data.serializers import DotSerializer, TrackSerializerList, TrackDetailSerializer, TrackCreateSerializer
+from data.serializers import DotSerializer, TrackSerializerList, TrackDetailSerializer, TrackCreateSerializer, User
 from dotstracks.settings import redis_instance
 
 

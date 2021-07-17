@@ -45,13 +45,13 @@ class Track(models.Model):
         return f"{self.name}"
 
 
-def publish_user_update(track: Track) -> None:
+def publish_track_created(track: Track) -> None:
     publish('track_stored',
             {'id': track.user_id, 'tracks_qty': Track.objects.filter(user_id=track.user_id).count(),
              'tracks_length': Track.objects.filter(user_id=track.user_id).aggregate(ss=Sum('length')).get('ss', 0)})
 
 
 @receiver(post_save, sender=Track)
-def notify_about_new_user(instance: Track, created, *args, **kwargs) -> None:
+def notify_about_new_track(instance: Track, created, *args, **kwargs) -> None:
     if created:
-        publish_user_update(instance)
+        publish_track_created(instance)
