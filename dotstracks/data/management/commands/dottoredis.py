@@ -16,6 +16,7 @@ class Command(BaseCommand):
 
         logging.info("Store dot in Redis")
         bar = IncrementalBar("Store dots in Redis:", max=Dot.objects.all().count())
+        redis_instance.delete("DOT")
         for d in Dot.objects.all():
             bar.next()
             redis_instance.geoadd("DOT", d.coord.y, d.coord.x, str(d.pk))

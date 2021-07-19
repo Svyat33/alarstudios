@@ -22,6 +22,8 @@ def build(request):
     path = [int(request.GET.get('from')), ]
     while path_length > 0 and same_dots:
         path_length -= 1
-        path.append(same_dots.pop())
+        dot = same_dots.pop()
+        if dot not in path:
+            path.append(same_dots.pop())
     path.append(int(request.GET.get('to')))
     return JsonResponse({'length': radius, 'dots': len(path), 'from': from_coord, 'to': to_coord, 'path': path})
