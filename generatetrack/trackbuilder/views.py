@@ -20,8 +20,7 @@ def build(request):
     path_length = randint(2, 100)
     same_dots = dots2 & dots1
     path = [int(request.GET.get('from')), ]
-    while path_length > 0 and same_dots:
-        path_length -= 1
+    while len(path) < path_length and same_dots:
         dot = same_dots.pop()
         if dot not in path:
             path.append(same_dots.pop())

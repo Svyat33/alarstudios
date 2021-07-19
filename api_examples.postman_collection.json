@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "95d9d4f9-2f45-4ce6-979b-bc573361988b",
+		"name": "alarstudio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"username\": \"user0\", \"password\": \"user0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/account/token/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"account",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyNjk4MjgyMSwianRpIjoiZDg0OTU5NWI2MjI1NGQ4MWFjODE4N2RkMmI5YTI2YzUiLCJ1c2VyX2lkIjoxfQ.PNtTMcWfIK-YMTJxMhmqoLhafvg40g9K43UzH0IO8Ug\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/account/token/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"account",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list of users (not admin!)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NzIwMDc4LCJqdGkiOiI4ODUxNTA2ZWZlNmU0MmFiYWZlZWVlMzZlNDJjOTg2MSIsInVzZXJfaWQiOjF9.jlempR0ztKiosY2d8VtA91Cbf2AiXH5ChlHbbNMHeJ8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/users/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dots and tracks",
+			"item": [
+				{
+					"name": "list dots",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NjMzMDQ1LCJqdGkiOiJhZjMzNjVkMjMxOGQ0MTRjODUzZWEzMTY2ODM3OTY3NyIsInVzZXJfaWQiOjF9.804_U_Ei5Vedp8-yHXHiy5l73n3pEozf8AXDf-WlJV0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/dot",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"dot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search in radius",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NzIzMTMwLCJqdGkiOiI3YjAwYmFhOTRkNzU0MzM2ODI2NjFmNTk0MDRiZDVkNiIsInVzZXJfaWQiOjF9.LFWgd_2XNHx-9qk3PbZzrEzaH_Jd73WUIoVSPw0Wro4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/dot?search=35.123,54.23412&radius=600",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"dot"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "35.123,54.23412"
+								},
+								{
+									"key": "radius",
+									"value": "600"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search in radius from DB",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NzIzMTMwLCJqdGkiOiI3YjAwYmFhOTRkNzU0MzM2ODI2NjFmNTk0MDRiZDVkNiIsInVzZXJfaWQiOjF9.LFWgd_2XNHx-9qk3PbZzrEzaH_Jd73WUIoVSPw0Wro4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/dot?search_db=35.123,54.23412&radius=600",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"dot"
+							],
+							"query": [
+								{
+									"key": "search_db",
+									"value": "35.123,54.23412"
+								},
+								{
+									"key": "radius",
+									"value": "600"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tracks list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NjMzMDQ1LCJqdGkiOiJhZjMzNjVkMjMxOGQ0MTRjODUzZWEzMTY2ODM3OTY3NyIsInVzZXJfaWQiOjF9.804_U_Ei5Vedp8-yHXHiy5l73n3pEozf8AXDf-WlJV0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/track/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"track",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "One track detailed view",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NjMzMDQ1LCJqdGkiOiJhZjMzNjVkMjMxOGQ0MTRjODUzZWEzMTY2ODM3OTY3NyIsInVzZXJfaWQiOjF9.804_U_Ei5Vedp8-yHXHiy5l73n3pEozf8AXDf-WlJV0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/track/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"track",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "build track",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NzIzMTMwLCJqdGkiOiI3YjAwYmFhOTRkNzU0MzM2ODI2NjFmNTk0MDRiZDVkNiIsInVzZXJfaWQiOjF9.LFWgd_2XNHx-9qk3PbZzrEzaH_Jd73WUIoVSPw0Wro4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/buildtrack?from=1&to=100",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"buildtrack"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "1"
+								},
+								{
+									"key": "to",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store track",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2ODQ2MTMwLCJqdGkiOiI4MDlkZWQwNDFlYjM0N2RjODQ5MTQ3ZmY5NzllMDIwNyIsInVzZXJfaWQiOjF9.EMjwQ3mJTUS8uRmBzfr47Ly9r-_byqtqjBIBEIXDpqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"some track name\", \"length\": 1, \"dots\": [   1,\n        163852,\n        393230,\n        196630,\n        491556,\n        131113,\n        131115,\n        100]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8088/api/track/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"track",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
