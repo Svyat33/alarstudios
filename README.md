@@ -22,4 +22,4 @@ user0, user1, user2 (пароль совпадает с логином)
 Также сгенерированы 500000 точек с рандомными именами. И размещены в редисе. 
 После этого можно проверять АПИ запросы.
 
-Пример запросов в коллекции Postman
+Пример запросов в коллекции [Postman](https://github.com/Svyat33/alarstudios/blob/master/api_examples.postman_collection.json)
