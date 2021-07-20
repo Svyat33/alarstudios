@@ -12,7 +12,8 @@
 # Установка
 ```
 mv .env-example .env
-docker-compose up
+docker-compose build
+
 ```
 дождаться создания БД
 ```

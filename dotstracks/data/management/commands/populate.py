@@ -17,7 +17,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         fake = faker.Faker(locale='en')
         Dot.objects.bulk_create(
-            (Dot(coord=Point(random.randint(-8500000, 8500000)/100000, random.randint(-18000000, 18000000)/100000),
+            (Dot(coord=Point(random.randint(3500000, 7000000)/100000, random.randint(-1500000, 4000000)/100000),
             name=fake.address()) for _ in range(500_000)),
             batch_size=200
         )

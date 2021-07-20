@@ -17,3 +17,4 @@ echo "Copy dots to redis DB"
 docker-compose exec dots python manage.py dottoredis
 echo "restart docker"
 docker-compose restart
+docker-compose up -d > /dev/null 2>&1

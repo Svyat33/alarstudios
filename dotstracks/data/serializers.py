@@ -45,12 +45,12 @@ class TrackSerializerList(serializers.ModelSerializer):
 
 class TrackDetailSerializer(serializers.ModelSerializer):
     user = UserSmallSerializer(read_only=True)
-    dots = DotSerializer(many=True)
+    track = DotSerializer(read_only=True, many=True)
     class Meta:
         model = Track
-        fields = ['id', 'name', 'user', 'length', 'dots',]
+        fields = ['id', 'name', 'user', 'length', 'track',]
 
 class TrackCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Track
-        fields = ['name', 'length', 'dots',]
+        fields = ['name', 'length',]

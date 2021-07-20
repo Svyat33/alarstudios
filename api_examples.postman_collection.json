@@ -157,7 +157,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NzIzMTMwLCJqdGkiOiI3YjAwYmFhOTRkNzU0MzM2ODI2NjFmNTk0MDRiZDVkNiIsInVzZXJfaWQiOjF9.LFWgd_2XNHx-9qk3PbZzrEzaH_Jd73WUIoVSPw0Wro4",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2ODQ2MTMwLCJqdGkiOiI4MDlkZWQwNDFlYjM0N2RjODQ5MTQ3ZmY5NzllMDIwNyIsInVzZXJfaWQiOjF9.EMjwQ3mJTUS8uRmBzfr47Ly9r-_byqtqjBIBEIXDpqw",
 									"type": "string"
 								}
 							]
@@ -165,7 +165,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8088/api/dot?search=35.123,54.23412&radius=600",
+							"raw": "http://127.0.0.1:8088/api/dot?search=54,35&radius=100",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -181,11 +181,11 @@
 							"query": [
 								{
 									"key": "search",
-									"value": "35.123,54.23412"
+									"value": "54,35"
 								},
 								{
 									"key": "radius",
-									"value": "600"
+									"value": "100"
 								}
 							]
 						}
@@ -208,7 +208,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8088/api/dot?search_db=35.123,54.23412&radius=600",
+							"raw": "http://127.0.0.1:8088/api/dot?search_db=54.4321,35.123123&radius=600",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -224,7 +224,7 @@
 							"query": [
 								{
 									"key": "search_db",
-									"value": "35.123,54.23412"
+									"value": "54.4321,35.123123"
 								},
 								{
 									"key": "radius",
@@ -243,7 +243,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NjMzMDQ1LCJqdGkiOiJhZjMzNjVkMjMxOGQ0MTRjODUzZWEzMTY2ODM3OTY3NyIsInVzZXJfaWQiOjF9.804_U_Ei5Vedp8-yHXHiy5l73n3pEozf8AXDf-WlJV0",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2OTQ4NzA3LCJqdGkiOiI0ZTMxMTg5MDBmMDI0ZjI4OTE1ODQ4ZjEzY2I3MzIwMiIsInVzZXJfaWQiOjF9.QKFziK2pdOmBotNp1GlX5l-AJ3bfzbwoV3LkigER1TM",
 									"type": "string"
 								}
 							]
@@ -277,7 +277,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2NjMzMDQ1LCJqdGkiOiJhZjMzNjVkMjMxOGQ0MTRjODUzZWEzMTY2ODM3OTY3NyIsInVzZXJfaWQiOjF9.804_U_Ei5Vedp8-yHXHiy5l73n3pEozf8AXDf-WlJV0",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI2OTQ4NzA3LCJqdGkiOiI0ZTMxMTg5MDBmMDI0ZjI4OTE1ODQ4ZjEzY2I3MzIwMiIsInVzZXJfaWQiOjF9.QKFziK2pdOmBotNp1GlX5l-AJ3bfzbwoV3LkigER1TM",
 									"type": "string"
 								}
 							]
@@ -285,7 +285,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8088/api/track/2",
+							"raw": "http://127.0.0.1:8088/api/track/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -297,7 +297,7 @@
 							"path": [
 								"api",
 								"track",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -363,7 +363,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"name\": \"some track name\", \"length\": 1, \"dots\": [   1,\n        163852,\n        393230,\n        196630,\n        491556,\n        131113,\n        131115,\n        100]}",
+							"raw": "{\"name\": \"111\", \"length\":100, \"dots\": [    55,\n        229522,\n        412126,\n        23915,\n        354547,\n        146562,\n        432137,\n        5]}",
 							"options": {
 								"raw": {
 									"language": "json"

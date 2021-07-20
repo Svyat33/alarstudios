@@ -11,14 +11,6 @@ from data.notifier import publish
 logger = logging.getLogger(__name__)
 
 
-class DotsOrderedManyToManyField(models.ManyToManyField):
-    def value_from_object(self, object):
-        relation = getattr(object, self.attname)
-        query = {self.related.var_name: object}
-        qs = relation.through.objects.filter(**query).order_by('id')
-        return Dot.objects.filter(pk__in=qs.values_list('dot_id', flat=True))
-
-
 class Dot(models.Model):
     coord = models.PointField()
     name = models.CharField(max_length=200)
@@ -30,16 +22,21 @@ class Dot(models.Model):
 class Track(models.Model):
     name = models.CharField(max_length=200)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    dots = DotsOrderedManyToManyField(Dot)
+    dots = models.ManyToManyField(Dot)
     length = models.IntegerField(default=0)
 
     @property
     def begin(self):
-        return self.dots.all().first()
+        return self.dots.through.objects.filter(track_id=self.pk).order_by('id')[0].dot
 
     @property
     def end(self):
-        return self.dots.all().last()
+        return self.dots.through.objects.filter(track_id=self.pk).order_by('-id')[0].dot
+
+    @property
+    def track(self):
+        return [tdconn.dot for tdconn in
+                self.dots.through.objects.filter(track_id=self.pk).select_related('dot').order_by('id')]
 
     def __repr__(self):
         return f"{self.name}"

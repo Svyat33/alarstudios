@@ -3,8 +3,9 @@ from decimal import Decimal
 
 from django.contrib.gis.geos import GEOSGeometry
 from django.contrib.gis.measure import D
-from rest_framework import mixins
+from rest_framework import mixins, status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from data.models import Dot, Track
@@ -49,7 +50,7 @@ class TrackView(mixins.RetrieveModelMixin,
     permission_classes = (IsAuthenticated,)
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        return serializer.save(user=self.request.user)
 
     def get_serializer_class(self):
         if self.request.method == "POST":
@@ -58,3 +59,12 @@ class TrackView(mixins.RetrieveModelMixin,
             return self.detail_serializer
 
         return self.serializer_class
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        track = self.perform_create(serializer)
+        for dot_id in request.data.get('dots'):
+            track.dots.add(Dot.objects.get(pk=dot_id))
+        headers = self.get_success_headers(serializer.data)
+        return Response(self.detail_serializer(track, many=False).data, status=status.HTTP_201_CREATED, headers=headers)
